@@ -1,0 +1,30 @@
+var WebGL = Laya.WebGL;
+var GameMain = /** @class */ (function () {
+    function GameMain() {
+        //初始化引擎
+        Laya.init(logic.GameConst.SCEEN_HEIGHT, logic.GameConst.SCEEN_WIDTH, Laya.WebGL);
+        //适配模式
+        Laya.stage.alignH = Laya.Stage.ALIGN_CENTER;
+        Laya.stage.alignV = Laya.Stage.ALIGN_MIDDLE;
+        Laya.stage.screenMode = Laya.Stage.SCREEN_VERTICAL;
+        Laya.stage.scaleMode = Laya.Stage.SCALE_EXACTFIT;
+        //初始化asgard
+        asgard.module.ModuleManager.init(new logic.ModuleFactory());
+        asgard.stage.StageManager.init(new logic.StageFactory());
+        asgard.ui.UIManager.init(new logic.UIFactory());
+        asgard.message.MessageDispatcher.init(new logic.MessageFactory());
+        asgard.events.EventsDispatcher.init(logic.GameConst.APP_NAME);
+        // 
+        asgard.stage.StageManager.enterStage(logic.GameConst.APP_NAME, logic.StageType.STAGE_LOADING);
+        Laya.timer.frameLoop(1, this, this.onFrame);
+    }
+    GameMain.prototype.onFrame = function () {
+        var time = Laya.timer.currTimer;
+        var delta = Laya.timer.delta;
+        asgard.ui.UIManager.onFrame(time, delta);
+        asgard.stage.StageManager.onFrame(time, delta);
+    };
+    return GameMain;
+}());
+new GameMain();
+//# sourceMappingURL=Laya.js.map

@@ -1,0 +1,8 @@
+<res>
+   <item name="comp/progress_loading.png" type="ProgressBar" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="comp/icon_music_off2.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="comp/icon_music_on2.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="comp" type="" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="comp/icon_music.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+   <item name="comp/icon_arrow2.png" type="Image" compress="0" pack="1" quality="80" props="" picType="0" scale="0"/>
+</res>
