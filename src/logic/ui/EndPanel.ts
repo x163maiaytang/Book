@@ -83,7 +83,8 @@ namespace logic
         {
             this._curUI.box.y=1280;
             Laya.Tween.to(this._curUI.box, { y: 0 }, 1000, null, Laya.Handler.create(this, this.onComplete));
-            			 
+            this._curUI.t.pos(222, 800)._zOrder = 10000;		 
+            this._curUI.t.visible = true;
         }
         
         protected onHide():void
