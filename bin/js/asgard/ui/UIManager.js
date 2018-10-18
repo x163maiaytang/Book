@@ -83,8 +83,24 @@ var asgard;
                 }
                 return uiView;
             };
-            UIManager.closeView = function (appname, viewname) {
-                var uiView = UIManager.findUIPanel(appname, viewname);
+            UIManager.closeView = function (appname, uiname) {
+                // let uiView:BaseUIPanel=UIManager.findUIPanel(appname,viewname);
+                var removeIndex = -1;
+                var uiView = null;
+                var index = 0;
+                for (var _i = 0, _a = UIManager._uiPanels; _i < _a.length; _i++) {
+                    var uipanel = _a[_i];
+                    if (uipanel && uipanel.getName() == uiname && uipanel.getAppName() == appname) {
+                        uiView = uipanel;
+                        removeIndex = index;
+                        break;
+                    }
+                    index++;
+                }
+                if (removeIndex > -1) {
+                    UIManager._uiPanels.splice(removeIndex, 1);
+                }
+                console.log(UIManager._uiPanels.length + "==========");
                 if (uiView) {
                     uiView.closeView(true);
                 }

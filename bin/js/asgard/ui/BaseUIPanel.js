@@ -15,14 +15,19 @@ var asgard;
                 return this._name;
             };
             BaseUIPanel.prototype.getView = function () {
-                if (!this._uiView) {
-                    this._uiView = this.createView();
-                    if (this._uiView) {
-                        this._uiView.name = this._name;
-                        this.onInit();
-                        ui.UIManager.addUIView(this._uiView);
-                    }
+                if (this._uiView) {
+                    this._lastUiView = this._uiView;
                 }
+                // 关闭缓存 hxb
+                // if(!this._uiView)
+                // {
+                this._uiView = this.createView();
+                if (this._uiView) {
+                    this._uiView.name = this._name;
+                    this.onInit();
+                    ui.UIManager.addUIView(this._uiView);
+                }
+                // }
                 return this._uiView;
             };
             BaseUIPanel.prototype.isVisible = function () {
@@ -65,7 +70,7 @@ var asgard;
                 this.onHide();
                 if (remove && this._uiView) {
                     this._uiView.removeSelf();
-                    //this._uiView.destroy();
+                    // this._uiView.destroy();
                 }
             };
             BaseUIPanel.prototype.onResLoaded = function () {
@@ -95,6 +100,8 @@ var asgard;
             BaseUIPanel.prototype.onHide = function () {
             };
             BaseUIPanel.prototype.dispose = function () {
+            };
+            BaseUIPanel.prototype.onShowComplete = function () {
             };
             return BaseUIPanel;
         }());

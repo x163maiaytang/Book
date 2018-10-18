@@ -21,9 +21,8 @@ namespace logic
         public getDependenceRes():Array<any>
         {
              return [
-                    {url : "comp/progress_loading.png", type : Laya.Loader.IMAGE },
-                    {url : "comp/progress_loading$bar.png", type : Laya.Loader.IMAGE },
-       
+                        {url : "comp/progress_loading.png", type : Laya.Loader.IMAGE },
+                        {url : "comp/progress_loading$bar.png", type : Laya.Loader.IMAGE },
                     ];
         }
 

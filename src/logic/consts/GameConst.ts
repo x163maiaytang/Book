@@ -18,6 +18,9 @@ namespace logic
 export class UIRes
     {
         public static BOOK:string="book";
+        public static BOOK1:string="book1";
+        public static BOOK2:string="book2";
+        public static END:string="end";
         public static LOADING:string="loading";
         
     }

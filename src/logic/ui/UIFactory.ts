@@ -11,9 +11,11 @@ namespace logic
         {
             switch(viewname)
             {
-                case UIRes.BOOK: return new BookPanel(viewname);
                 case UIRes.LOADING: return new LoadingPanel(viewname);
-                
+                case UIRes.BOOK: return new BookPanel(viewname);
+                case UIRes.BOOK1: return new Book1Panel(viewname);
+                case UIRes.BOOK2: return new Book2Panel(viewname);
+                case UIRes.END: return new EndPanel(viewname);
                     
             }
             return null;

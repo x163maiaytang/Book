@@ -8,8 +8,11 @@ var logic;
         };
         UIFactory.prototype.getUI = function (viewname) {
             switch (viewname) {
-                case logic.UIRes.BOOK: return new logic.BookPanel(viewname);
                 case logic.UIRes.LOADING: return new logic.LoadingPanel(viewname);
+                case logic.UIRes.BOOK: return new logic.BookPanel(viewname);
+                case logic.UIRes.BOOK1: return new logic.Book1Panel(viewname);
+                case logic.UIRes.BOOK2: return new logic.Book2Panel(viewname);
+                case logic.UIRes.END: return new logic.EndPanel(viewname);
             }
             return null;
         };

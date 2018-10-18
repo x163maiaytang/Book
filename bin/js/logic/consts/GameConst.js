@@ -17,6 +17,9 @@ var logic;
         function UIRes() {
         }
         UIRes.BOOK = "book";
+        UIRes.BOOK1 = "book1";
+        UIRes.BOOK2 = "book2";
+        UIRes.END = "end";
         UIRes.LOADING = "loading";
         return UIRes;
     }());

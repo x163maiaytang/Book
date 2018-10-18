@@ -8,6 +8,8 @@ module asgard.ui
         protected _visible:boolean;
         protected _uiView:laya.ui.View;
 
+        protected _lastUiView:laya.ui.View;
+
         constructor(appname:string,name:string)
         {
             this._appName=appname;
@@ -27,8 +29,14 @@ module asgard.ui
 
         public getView():laya.ui.View
         {
-            if(!this._uiView)
-            {
+
+
+            if(this._uiView){
+                this._lastUiView = this._uiView;
+            }
+            // 关闭缓存 hxb
+            // if(!this._uiView)
+            // {
                 this._uiView=this.createView();
                 if(this._uiView)
                 {
@@ -36,7 +44,7 @@ module asgard.ui
                     this.onInit();
                     UIManager.addUIView(this._uiView);
                 }
-            }
+            // }
             return this._uiView;
         }
 
@@ -80,6 +88,8 @@ module asgard.ui
             }
         }
 
+        public 
+
         public prepareView():void
         {
             this._visible=false;
@@ -100,7 +110,7 @@ module asgard.ui
             if(remove && this._uiView)
             {
                 this._uiView.removeSelf();
-                //this._uiView.destroy();
+                // this._uiView.destroy();
             }
         }
 
@@ -146,9 +156,14 @@ module asgard.ui
 
         protected onHide():void
         {
+      
         }
 
         public dispose():void
+        {
+        }
+
+        protected onShowComplete():void
         {
         }
 		

@@ -121,9 +121,30 @@ module asgard.ui
             return uiView;
         }
 
-        public static closeView(appname:string,viewname:string):void
+        public static closeView(appname:string,uiname:string):void
         {
-            let uiView:BaseUIPanel=UIManager.findUIPanel(appname,viewname);
+            // let uiView:BaseUIPanel=UIManager.findUIPanel(appname,viewname);
+     
+
+            let removeIndex:number = -1;
+            let uiView:BaseUIPanel=null;
+            let index:number = 0;
+            for (let uipanel of UIManager._uiPanels) 
+            {
+                if(uipanel && uipanel.getName()==uiname && uipanel.getAppName()==appname)
+                {
+                    uiView=uipanel;
+
+                    removeIndex = index;
+                    break;
+                }
+                index ++;
+            }
+          
+            if(removeIndex > -1) {
+                UIManager._uiPanels.splice(removeIndex, 1);
+            }
+            console.log(UIManager._uiPanels.length + "==========")
             if(uiView)
             {
                 uiView.closeView(true);

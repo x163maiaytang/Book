@@ -14,13 +14,37 @@ var logic;
     var GameStage = /** @class */ (function (_super) {
         __extends(GameStage, _super);
         function GameStage() {
-            return _super.call(this, logic.GameConst.APP_NAME, logic.StageType.STAGE_GAME) || this;
+            var _this = _super.call(this, logic.GameConst.APP_NAME, logic.StageType.STAGE_GAME) || this;
+            _this.index = 0;
+            return _this;
         }
         GameStage.prototype.onEnter = function () {
-            asgard.ui.UIManager.openView(logic.GameConst.APP_NAME, logic.UIRes.BOOK);
+            this.init();
         };
         GameStage.prototype.onExit = function () {
-            // asgard.ui.UIManager.closeView(logic.GameConst.APP_NAME,logic.UIRes.GAMEMAINROOT);
+            asgard.ui.UIManager.closeView(logic.GameConst.APP_NAME, this.curPanel);
+        };
+        GameStage.prototype.next = function (nextPanel) {
+            // if(nextPanel == "book"){
+            //       asgard.ui.UIManager.closeView(logic.GameConst.APP_NAME,"book");
+            //       asgard.ui.UIManager.closeView(logic.GameConst.APP_NAME,"book1");
+            //       asgard.ui.UIManager.closeView(logic.GameConst.APP_NAME,"book2");
+            //       asgard.ui.UIManager.closeView(logic.GameConst.APP_NAME,"end");
+            // }
+            if (this.curPanel != nextPanel) {
+                this.index++;
+                asgard.ui.UIManager.openView(logic.GameConst.APP_NAME, nextPanel);
+                asgard.ui.UIManager.closeView(logic.GameConst.APP_NAME, this.curPanel);
+                this.curPanel = nextPanel;
+            }
+        };
+        GameStage.prototype.init = function () {
+            this.index = 0;
+            if (this.curPanel) {
+                asgard.ui.UIManager.closeView(logic.GameConst.APP_NAME, this.curPanel);
+            }
+            this.curPanel = logic.UIRes.BOOK;
+            asgard.ui.UIManager.openView(logic.GameConst.APP_NAME, logic.UIRes.BOOK);
         };
         return GameStage;
     }(asgard.stage.BaseStage));
