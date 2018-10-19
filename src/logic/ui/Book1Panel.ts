@@ -94,23 +94,27 @@ namespace logic
 
         protected onComplete():void
         {
-            Laya.Tween.to(this._curUI.i0, { x: 720 }, 2000, null, Laya.Handler.create(this, this.onI0Complete));
-            Laya.Tween.to(this._curUI.i1, { x: -1000 }, 2000, null, Laya.Handler.create(this, this.onI1Complete));
+
+            let gs:GameStage = asgard.stage.StageManager.CurStage(logic.GameConst.APP_NAME) as GameStage;
+            gs.closeLast();
+
+            Laya.Tween.to(this._curUI.i0, { x: 720 }, 3000, null, Laya.Handler.create(this, this.onI0Complete));
+            Laya.Tween.to(this._curUI.i1, { x: -1000 }, 3000, null, Laya.Handler.create(this, this.onI1Complete));
         }
 
         protected onI0Complete():void
         {
-            Laya.Tween.to(this._curUI.i2, { x: -1000 }, 2000, null, Laya.Handler.create(this, this.onI2Complete))
+            Laya.Tween.to(this._curUI.i2, { x: -1000 }, 3000, null, Laya.Handler.create(this, this.onI2Complete))
         }
 
         protected onI1Complete():void
         {
-            Laya.Tween.to(this._curUI.i3, { x: 720 }, 2000, null, Laya.Handler.create(this, this.onI3Complete))
+            Laya.Tween.to(this._curUI.i3, { x: 720 }, 3000, null, Laya.Handler.create(this, this.onI3Complete))
         }
 
         protected onI2Complete():void
         {
-            Laya.Tween.to(this._curUI.i4, { alpha: 1 }, 1000, null, Laya.Handler.create(this, this.onI4Complete))
+            Laya.Tween.to(this._curUI.i4, { alpha: 1 }, 2000, null, Laya.Handler.create(this, this.onI4Complete))
         }
 
         protected onI3Complete():void

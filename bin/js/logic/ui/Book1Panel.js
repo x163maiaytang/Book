@@ -67,17 +67,19 @@ var logic;
             console.log("111");
         };
         Book1Panel.prototype.onComplete = function () {
-            Laya.Tween.to(this._curUI.i0, { x: 720 }, 2000, null, Laya.Handler.create(this, this.onI0Complete));
-            Laya.Tween.to(this._curUI.i1, { x: -1000 }, 2000, null, Laya.Handler.create(this, this.onI1Complete));
+            var gs = asgard.stage.StageManager.CurStage(logic.GameConst.APP_NAME);
+            gs.closeLast();
+            Laya.Tween.to(this._curUI.i0, { x: 720 }, 3000, null, Laya.Handler.create(this, this.onI0Complete));
+            Laya.Tween.to(this._curUI.i1, { x: -1000 }, 3000, null, Laya.Handler.create(this, this.onI1Complete));
         };
         Book1Panel.prototype.onI0Complete = function () {
-            Laya.Tween.to(this._curUI.i2, { x: -1000 }, 2000, null, Laya.Handler.create(this, this.onI2Complete));
+            Laya.Tween.to(this._curUI.i2, { x: -1000 }, 3000, null, Laya.Handler.create(this, this.onI2Complete));
         };
         Book1Panel.prototype.onI1Complete = function () {
-            Laya.Tween.to(this._curUI.i3, { x: 720 }, 2000, null, Laya.Handler.create(this, this.onI3Complete));
+            Laya.Tween.to(this._curUI.i3, { x: 720 }, 3000, null, Laya.Handler.create(this, this.onI3Complete));
         };
         Book1Panel.prototype.onI2Complete = function () {
-            Laya.Tween.to(this._curUI.i4, { alpha: 1 }, 1000, null, Laya.Handler.create(this, this.onI4Complete));
+            Laya.Tween.to(this._curUI.i4, { alpha: 1 }, 2000, null, Laya.Handler.create(this, this.onI4Complete));
         };
         Book1Panel.prototype.onI3Complete = function () {
         };

@@ -126,6 +126,7 @@ namespace logic
         protected onHaoComplete():void
         {
             
+             Laya.Tween.to(this._curUI.zdtj, { alpha: 1, scaleX: 1, scaleY: 1 }, 800, Laya.Ease.elasticOut, null);
         }
 
         protected onShuComplete():void
@@ -135,7 +136,6 @@ namespace logic
 
         protected onTuiComplete():void
         {
-             Laya.Tween.to(this._curUI.zdtj, { alpha: 1, scaleX: 1, scaleY: 1 }, 800, Laya.Ease.elasticOut, null);
          //    Laya.Tween.to(this._curUI.zdtj, { alpha: 1, scaleX: 1, scaleY: 1 }, 500, Laya.Ease.elasticOut, null, 800);
         }
 

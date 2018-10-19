@@ -67,7 +67,8 @@ var logic;
             console.log("111");
         };
         Book2Panel.prototype.onComplete = function () {
-            console.log("111");
+            var gs = asgard.stage.StageManager.CurStage(logic.GameConst.APP_NAME);
+            gs.closeLast();
         };
         Book2Panel.prototype.onFrame = function (time, delta) {
             this._curUI.star1.rotation += 2;

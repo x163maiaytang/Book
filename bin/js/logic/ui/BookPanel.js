@@ -86,11 +86,11 @@ var logic;
         BookPanel.prototype.dispose = function () {
         };
         BookPanel.prototype.onHaoComplete = function () {
+            Laya.Tween.to(this._curUI.zdtj, { alpha: 1, scaleX: 1, scaleY: 1 }, 800, Laya.Ease.elasticOut, null);
         };
         BookPanel.prototype.onShuComplete = function () {
         };
         BookPanel.prototype.onTuiComplete = function () {
-            Laya.Tween.to(this._curUI.zdtj, { alpha: 1, scaleX: 1, scaleY: 1 }, 800, Laya.Ease.elasticOut, null);
             //    Laya.Tween.to(this._curUI.zdtj, { alpha: 1, scaleX: 1, scaleY: 1 }, 500, Laya.Ease.elasticOut, null, 800);
         };
         BookPanel.prototype.onJianComplete = function () {

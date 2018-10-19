@@ -81,7 +81,7 @@ namespace logic
         }
         protected onShow():void
         {
-this._curUI.box.y=1280;
+            this._curUI.box.y=1280;
             Laya.Tween.to(this._curUI.box, { y: 0 }, 1000, null, Laya.Handler.create(this, this.onComplete));
             			 
         }
@@ -93,7 +93,8 @@ this._curUI.box.y=1280;
  
         protected onComplete():void
         {
-            console.log("111");
+            let gs:GameStage = asgard.stage.StageManager.CurStage(logic.GameConst.APP_NAME) as GameStage;
+            gs.closeLast();
         }
 
         public onFrame(time:number,delta:number):void

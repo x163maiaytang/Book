@@ -25,17 +25,16 @@ var logic;
             asgard.ui.UIManager.closeView(logic.GameConst.APP_NAME, this.curPanel);
         };
         GameStage.prototype.next = function (nextPanel) {
-            // if(nextPanel == "book"){
-            //       asgard.ui.UIManager.closeView(logic.GameConst.APP_NAME,"book");
-            //       asgard.ui.UIManager.closeView(logic.GameConst.APP_NAME,"book1");
-            //       asgard.ui.UIManager.closeView(logic.GameConst.APP_NAME,"book2");
-            //       asgard.ui.UIManager.closeView(logic.GameConst.APP_NAME,"end");
-            // }
             if (this.curPanel != nextPanel) {
                 this.index++;
                 asgard.ui.UIManager.openView(logic.GameConst.APP_NAME, nextPanel);
-                asgard.ui.UIManager.closeView(logic.GameConst.APP_NAME, this.curPanel);
+                this.lastPanel = this.curPanel;
                 this.curPanel = nextPanel;
+            }
+        };
+        GameStage.prototype.closeLast = function () {
+            if (this.lastPanel) {
+                asgard.ui.UIManager.closeView(logic.GameConst.APP_NAME, this.lastPanel);
             }
         };
         GameStage.prototype.init = function () {

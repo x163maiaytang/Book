@@ -77,7 +77,7 @@ namespace logic
 
             let gs:GameStage = asgard.stage.StageManager.CurStage(logic.GameConst.APP_NAME) as GameStage;
 
-            gs.next("book");
+            gs.init();
         }
         protected onShow():void
         {
@@ -97,7 +97,8 @@ namespace logic
 
         protected onComplete():void
         {
-            // Laya.Tween.to(this._curUI.i4, { alpha: 1 }, 1000, null, Laya.Handler.create(this, this.onI4Complete))
+            let gs:GameStage = asgard.stage.StageManager.CurStage(logic.GameConst.APP_NAME) as GameStage;
+            gs.closeLast();
 
             this.qrcode = Laya.Browser.document.createElement("img");
     

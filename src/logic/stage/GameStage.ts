@@ -5,6 +5,7 @@ module logic
     {
         private index:number = 0;
         private curPanel:string;
+        private lastPanel:string;
         constructor() 
         {
             super(GameConst.APP_NAME,logic.StageType.STAGE_GAME);
@@ -23,26 +24,27 @@ module logic
 
         public next(nextPanel:string):void
         {
-            // if(nextPanel == "book"){
-            //       asgard.ui.UIManager.closeView(logic.GameConst.APP_NAME,"book");
-            //       asgard.ui.UIManager.closeView(logic.GameConst.APP_NAME,"book1");
-            //       asgard.ui.UIManager.closeView(logic.GameConst.APP_NAME,"book2");
-            //       asgard.ui.UIManager.closeView(logic.GameConst.APP_NAME,"end");
-            // }
+ 
             if(this.curPanel != nextPanel){
 
 
               this.index ++;
 
               asgard.ui.UIManager.openView(logic.GameConst.APP_NAME,nextPanel);
-              asgard.ui.UIManager.closeView(logic.GameConst.APP_NAME,this.curPanel);
-
+    
+              this.lastPanel = this.curPanel;
               this.curPanel = nextPanel;
             }
 
           
         }
 
+        public closeLast(){
+            if(this.lastPanel){
+
+                asgard.ui.UIManager.closeView(logic.GameConst.APP_NAME,this.lastPanel);
+            }
+        }
         public init():void
         {
             this.index = 0;

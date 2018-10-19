@@ -57,7 +57,7 @@ var logic;
         };
         EndPanel.prototype.next = function () {
             var gs = asgard.stage.StageManager.CurStage(logic.GameConst.APP_NAME);
-            gs.next("book");
+            gs.init();
         };
         EndPanel.prototype.onShow = function () {
             this._curUI.box.y = 1280;
@@ -72,7 +72,8 @@ var logic;
             }
         };
         EndPanel.prototype.onComplete = function () {
-            // Laya.Tween.to(this._curUI.i4, { alpha: 1 }, 1000, null, Laya.Handler.create(this, this.onI4Complete))
+            var gs = asgard.stage.StageManager.CurStage(logic.GameConst.APP_NAME);
+            gs.closeLast();
             this.qrcode = Laya.Browser.document.createElement("img");
             this.qrcode.style.position = "absolute"; //设置布局定位。这个不能少。
             this.qrcode.style.zIndex = 100; //设置层级
