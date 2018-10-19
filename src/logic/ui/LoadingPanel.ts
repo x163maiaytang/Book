@@ -50,7 +50,7 @@ namespace logic
                     {url : "book/13.jpg", type : Laya.Loader.IMAGE },
                     {url : "book/14.jpg", type : Laya.Loader.IMAGE },
                     {url : "book/15.jpg", type : Laya.Loader.IMAGE },
-                    {url : "book/bg.png", type : Laya.Loader.IMAGE },
+                 //   {url : "book/bg.png", type : Laya.Loader.IMAGE },
                     {url : "book/i0.jpg", type : Laya.Loader.IMAGE },
                     {url : "book/i1.jpg", type : Laya.Loader.IMAGE },
                     {url : "book/i2.jpg", type : Laya.Loader.IMAGE },

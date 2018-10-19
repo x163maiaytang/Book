@@ -14,6 +14,7 @@ var GameMain = /** @class */ (function () {
         asgard.ui.UIManager.init(new logic.UIFactory());
         asgard.message.MessageDispatcher.init(new logic.MessageFactory());
         asgard.events.EventsDispatcher.init(logic.GameConst.APP_NAME);
+        Laya.Stat.show(0, 0); //性能统计面板
         // 
         asgard.stage.StageManager.enterStage(logic.GameConst.APP_NAME, logic.StageType.STAGE_LOADING);
         Laya.timer.frameLoop(1, this, this.onFrame);

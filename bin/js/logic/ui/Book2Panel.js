@@ -16,6 +16,8 @@ var logic;
         function Book2Panel(name) {
             var _this = _super.call(this, logic.GameConst.APP_NAME, name) || this;
             _this.timeLine = new TimeLine();
+            _this.pageIndex = 15;
+            _this.orderNum = 15;
             return _this;
         }
         Book2Panel.prototype.createView = function () {
@@ -44,6 +46,23 @@ var logic;
             this._curUI.star4.pivot(centerX, centerY);
             this.timeLine.addLabel("up", 0).to(this._curUI.next, { x: 323, y: 1200 }, 1000, null, 0).addLabel("alpha", 0).to(this._curUI.next, { alpha: 0.1 }, 500, null, 0);
             this.timeLine.play(0, true);
+            for (var index = 15; index > 0; index--) {
+                var page = new Laya.Sprite();
+                page.loadImage("book/" + index + ".jpg", 0, 0);
+                this._curUI.container.addChild(page);
+            }
+            for (var index = 14; index >= 0; index--) {
+                var page = this._curUI.container.getChildAt(index);
+                ;
+                page.x = this._curUI.container.width / 2;
+                page.pivotY = page.height / 2;
+                if (index % 2 != 0) {
+                    page.skewY = -180;
+                    page.x = this._curUI.container.width / 2;
+                    page.pivotX = page.width;
+                    page.x = this._curUI.container.width / 2;
+                }
+            }
         };
         Book2Panel.prototype.bgOn = function () {
             this._curUI.mus_on.visible = false;
@@ -67,8 +86,35 @@ var logic;
             console.log("111");
         };
         Book2Panel.prototype.onComplete = function () {
+            this.onPageComplete();
             var gs = asgard.stage.StageManager.CurStage(logic.GameConst.APP_NAME);
             gs.closeLast();
+        };
+        Book2Panel.prototype.havePage = function (index) {
+            return index >= 0 && index < 15;
+        };
+        Book2Panel.prototype.onPageComplete = function () {
+            this.pageIndex--;
+            if (this.pageIndex > 0) {
+                this.orderNum++;
+                var page = this._curUI.container.getChildAt(this.pageIndex);
+                page.zOrder += Math.pow(this.orderNum, 2);
+                Laya.Tween.to(page, { skewY: -180 }, 2000, null, null);
+            }
+            this.pageIndex--;
+            if (this.pageIndex > 0) {
+                // this.orderNum ++;
+                var page = this._curUI.container.getChildAt(this.pageIndex);
+                //    page.zOrder += Math.pow(this.orderNum, 2);
+                Laya.Tween.to(page, { skewY: -270 }, 1000, null, Laya.Handler.create(this, this.onPageHalfComplete));
+            }
+        };
+        Book2Panel.prototype.onPageHalfComplete = function () {
+            this.orderNum++;
+            var page = this._curUI.container.getChildAt(this.pageIndex);
+            page.zOrder += Math.pow(this.orderNum, 2);
+            Laya.Tween.to(page, { skewY: -360 }, 1000, null, Laya.Handler.create(this, this.onPageComplete));
+            logic.SoundManager.playSound("sound/flipsound.ogg");
         };
         Book2Panel.prototype.onFrame = function (time, delta) {
             this._curUI.star1.rotation += 2;

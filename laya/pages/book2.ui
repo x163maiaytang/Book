@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":22,
-    "selecteID":30,
+    "selectedBox":30,
+    "selecteID":33,
     "props":{"y":0,"x":0,"width":720,"sceneColor":"#000000","pivotY":0,"pivotX":0,"height":1280,"alpha":1},
     "nodeParent":-1,
     "label":"View",
@@ -15,7 +15,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":1280,"width":720,"var":"box","skin":"comp/black.png","sizeGrid":"3,3,3,3","height":1280},
+            "props":{"y":1280,"width":720,"var":"box","skin":"comp/black.png","skewY":0,"sizeGrid":"3,3,3,3","height":1280},
             "nodeParent":1,
             "label":"Image(box)",
             "isOpen":true,
@@ -119,9 +119,10 @@
                 {
                     "x":30,
                     "type":"Image",
-                    "props":{"y":294,"x":1,"skin":"book/1.jpg"},
+                    "props":{"y":868,"x":1,"width":721,"var":"container","skewY":0,"skewX":0,"pivotY":302,"height":598},
                     "nodeParent":22,
-                    "label":"Image",
+                    "label":"Image(container)",
+                    "isOpen":true,
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,

@@ -119,7 +119,7 @@
                 {
                     "x":30,
                     "type":"Text",
-                    "props":{"y":793,"x":228,"width":258,"var":"t","text":"长按识别二维码","height":43,"fontSize":30,"font":"Microsoft YaHei","bold":true,"alpha":1,"align":"center"},
+                    "props":{"y":793,"x":228,"width":258,"var":"t","text":"长按识别二维码","height":43,"fontSize":30,"font":"Microsoft YaHei","bold":true,"alpha":74,"align":"center"},
                     "nodeParent":22,
                     "label":"Text(t)",
                     "isDirectory":false,
