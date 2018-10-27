@@ -144,7 +144,7 @@ module asgard.ui
             if(removeIndex > -1) {
                 UIManager._uiPanels.splice(removeIndex, 1);
             }
-            console.log(UIManager._uiPanels.length + "==========")
+            // console.log(UIManager._uiPanels.length + "==========")
             if(uiView)
             {
                 uiView.closeView(true);
